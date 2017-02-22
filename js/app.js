@@ -19,24 +19,3 @@ for (let i = 0; i < services.length; i++) {
     console.log(services[i]);
     app.factory(services[i].name, services[i].func)
 };
-
-
-//ROUTES
-const routes = require('./routes');
-app.config($stateProvider => {
-    for (let i = 0; i < routes.length; i++) {
-        $stateProvider.state(routes[i]);
-    }
-});
-
-//COMPONENTS
-const components = [
-    require('./components/latestComponent'),
-    require('./components/lovedComponent'),
-    require('./components/postedComponent'),
-];
-
-for (let i = 0; i < components.length; i++) {
-    console.log(components[i]);
-    app.component(components[i].name, components[i].config);
-};

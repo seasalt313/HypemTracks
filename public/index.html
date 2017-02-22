@@ -6,19 +6,17 @@
     <title>FanHero Assn</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
 
 </head>
 
 <body ng-app="fanHeroApp">
     <section ng-controller="viewTracksController">
 
-        <!-- As a User I want to be able to search tracks on Hype Machine -->
         <section id="search">
             <input ng-model="search" type="text"><i class="fa fa-search" aria-hidden="true"></i></input>
         </section>
 
-        <!-- As a User I want to be able to sort the tracks by latest, loved, posted. -->
+        <!-- sort the tracks by latest, loved, posted. -->
         <section id="tabs">
             <ul>
                 <li class="tab"><a ng-click="showLatest()" ui-sref="/latest">LATEST</a></li>
@@ -27,9 +25,6 @@
             </ul>
         </section>
 
-        <!-- <ui-view></ui-view> -->
-
-        <!-- As a User I want to see tracks from Hype Machine -->
         <section id="tracks">
             <ul>
                 <li ng-repeat="track in tracks">
@@ -52,6 +47,7 @@
 
 
     <!-- adding angular -->
+    <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <!-- ui router -->
     <script src="https://npmcdn.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>

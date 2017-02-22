@@ -21,52 +21,7 @@ for (let i = 0; i < services.length; i++) {
     app.factory(services[i].name, services[i].func)
 };
 
-
-//ROUTES
-const routes = require('./routes');
-app.config($stateProvider => {
-    for (let i = 0; i < routes.length; i++) {
-        $stateProvider.state(routes[i]);
-    }
-});
-
-//COMPONENTS
-const components = [
-    require('./components/latestComponent'),
-    require('./components/lovedComponent'),
-    require('./components/postedComponent'),
-];
-
-for (let i = 0; i < components.length; i++) {
-    console.log(components[i]);
-    app.component(components[i].name, components[i].config);
-};
-
-},{"./components/latestComponent":2,"./components/lovedComponent":3,"./components/postedComponent":4,"./controllers/viewTracksController":5,"./routes":6,"./services/tracksService":7}],2:[function(require,module,exports){
-module.exports = {
-  name: 'latestComponent',
-  config: {
-    templateUrl: 'templates/latest.html',
-  },
-};
-
-},{}],3:[function(require,module,exports){
-module.exports = {
-  name: 'lovedComponent',
-  config: {
-    templateUrl: 'templates/loved.html',
-  },
-};
-
-},{}],4:[function(require,module,exports){
-module.exports = {
-  name: 'postedComponent',
-  config: {
-    templateUrl: 'templates/posted.html',
-  },
-};
-
-},{}],5:[function(require,module,exports){
+},{"./controllers/viewTracksController":2,"./services/tracksService":3}],2:[function(require,module,exports){
 module.exports = {
     name: "viewTracksController",
     func: function($scope, tracksService) {
@@ -90,28 +45,7 @@ module.exports = {
     },
 }
 
-},{}],6:[function(require,module,exports){
-module.exports = [
-    {
-        name: 'loved',
-        url: '/loved',
-        component: 'lovedComponent',
-    },
-
-    {
-        name: 'latest',
-        url: '/latest',
-        component: 'latestComponent',
-    },
-
-    {
-        name: 'posted',
-        url: '/posted',
-        component: 'postedComponent',
-    },
-];
-
-},{}],7:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 module.exports = {
     name: "tracksService",
     func: function($http) {
@@ -126,8 +60,6 @@ module.exports = {
                 //http get req.
                 let tracks = $http.get('https://api.hypem.com/v2/tracks?key=swagger').then(function(response) {
                     const incoming = response.data;
-                    console.log("should be receiving a REGULAR list of tracks below: ");
-                    console.log(incoming);
                     angular.copy(response.data, trackList)
                 })
                 return trackList;
@@ -137,8 +69,6 @@ module.exports = {
                 let latest = $http.get('https://api.hypem.com/v2/tracks?q=' + query + '&key=swagger').then(function(response) {
                     const incoming = response.data;
                     latest = incoming;
-                    console.log("should be receiving a list of the LATEST tracks below: ");
-                    console.log(incoming);
                     angular.copy(response.data, latestTracks)
                 })
                 return latestTracks;
@@ -147,8 +77,6 @@ module.exports = {
                 //http get loved
                 let loved = $http.get('https://api.hypem.com/v2/tracks?q=' + query + '&key=swagger').then(function(response) {
                     const incoming = response.data;
-                    console.log("Receiving a list of the LOVED tracks below: ");
-                    console.log(incoming);
                     angular.copy(response.data, lovedTracks)
                 })
                 return lovedTracks;
@@ -157,8 +85,6 @@ module.exports = {
                 //http get posted
                 let posted = $http.get('https://api.hypem.com/v2/tracks?q=' + query + '&key=swagger').then(function(response) {
                     const incoming = response.data;
-                    console.log("Receiving a list of the POSTED tracks below: ");
-                    console.log(incoming);
                     angular.copy(response.data, postedTracks)
                 })
                 return postedTracks;
