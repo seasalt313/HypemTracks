@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FanHero Assn</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
+
+</head>
+
+<body ng-app="fanHeroApp">
+    <section ng-controller="viewTracksController">
+
+        <!-- As a User I want to be able to search tracks on Hype Machine -->
+        <section id="search">
+            <input ng-model="search" type="text"><i class="fa fa-search" aria-hidden="true"></i></input>
+        </section>
+
+        <!-- As a User I want to be able to sort the tracks by latest, loved, posted. -->
+        <section id="tabs">
+            <ul>
+                <li class="tab"><a ng-click="showLatest()" ui-sref="/latest">LATEST</a></li>
+                <li class="tab"><a ng-click="showLoved()" ui-sref="/loved">LOVED</a></li>
+                <li class="tab"><a ng-click="showPosted()" ui-sref="/posted">POSTED</a></li>
+            </ul>
+        </section>
+
+        <!-- <ui-view></ui-view> -->
+
+        <!-- As a User I want to see tracks from Hype Machine -->
+        <section id="tracks">
+            <ul>
+                <li ng-repeat="track in tracks">
+                    <td><img ng-src="{{track.thumb_url_large}}" />
+                        <!-- <div class="artist">
+                          <h4 class="artist"> {{ track.artist }}</h4>
+                          <h4 class="song"> {{ track.title }}</h4>
+                        </div> -->
+                    </td>
+                    <div class="posted">
+                        <p class="sitename">posted on: {{track.sitename}}</p>
+                        <p class="heart" id="heart"><i class="fa fa-heart-o" aria-hidden="true"></i> {{track.loved_count}}</p>
+                    </div>
+                    <p class="desc"> {{ track.description }}</p>
+                </li>
+            </ul>
+        </section>
+      </section>
+
+
+
+    <!-- adding angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <!-- ui router -->
+    <script src="https://npmcdn.com/angular-ui-router@1.0.0-beta.3/release/angular-ui-router.min.js"></script>
+    <script src="app.js" type="text/javascript">
+    </script>
+</body>
+
+</html>

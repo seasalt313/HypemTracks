@@ -1,0 +1,59 @@
+body {
+  ul {
+    padding: 0px 0px;
+  }
+  #tracks li {
+    @include grid-row();
+    list-style: none;
+    padding: 0;
+    border-top: 5px solid #d9d9d9;
+
+    img {
+      @include grid-column(12);
+      max-width: 100%;
+      height: 500px;
+      margin: 0px 0px;
+      padding: 0px 0px 10px 0px !important;
+    }
+
+    .posted {
+      color:  #d9d9d9;
+      @include grid-row();
+      margin: 0px;
+      padding: 4px 10px;
+      border: 1px solid #d9d9d9;
+      .sitename {
+        @include grid-column(6);
+        text-decoration: underline;
+        text-decoration-color: teal;
+        padding: 0;
+        margin: 0;
+      }
+      .fa-heart-o:before {
+        @include grid-column(6);
+        color: teal;
+      }
+      p#heart {
+        text-align: right;
+        padding-right: 50px;
+      }
+    }
+      .track {
+        @include grid-column(12);
+        .artist {
+          @include grid-column(12);
+          .artist .song {
+            @include grid-column(5);
+          }
+        }
+      }
+
+      p.desc{
+        margin: 25px;
+      }
+
+    h4 {
+      @include grid-column(12);
+    }
+  }
+}

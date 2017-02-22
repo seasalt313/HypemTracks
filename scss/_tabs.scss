@@ -1,0 +1,16 @@
+body {
+  #tabs {
+    @include grid-row();
+    margin: auto;
+    text-align: center;
+     li {
+      @include grid-column(4);
+      color: grey;
+      list-style: none;
+    }
+    li a:hover {
+      text-decoration: underline;
+      color: teal;
+    }
+  }
+}

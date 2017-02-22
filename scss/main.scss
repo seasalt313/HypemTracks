@@ -1,0 +1,15 @@
+// include foundation
+
+@import "../node_modules/foundation-sites/scss/foundation";
+
+@include foundation-global-styles;
+@include foundation-grid;
+
+@import "search";
+@import "tabs";
+@import "tracks";
+
+body {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+}

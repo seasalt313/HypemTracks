@@ -1,0 +1,25 @@
+body {
+  margin: 0 0 0 0;
+
+  #search {
+    @include grid-row();
+    margin:0;
+    max-width: 100%;
+    background-color:  #d9d9d9;
+
+    .fa-search {
+      font-size: 19px;
+      margin: auto;
+    }
+
+    input {
+      @include grid-column(11);
+      padding: 10px;
+      background-color:  #d9d9d9;
+      color: black;
+      font-size: 19px;
+      border: none;
+    }
+
+  }
+}
