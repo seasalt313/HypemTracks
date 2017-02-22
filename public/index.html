@@ -13,7 +13,7 @@
     <section ng-controller="viewTracksController">
 
         <section id="search">
-            <input ng-model="query" ng-keyup="searchTracks(query)" type="text"><i class="fa fa-search" aria-hidden="true"></i></input>
+            <input ng-model="query" type="text"><i class="fa fa-search" aria-hidden="true"></i></input>
         </section>
 
         <!-- sort the tracks by latest, loved, posted. -->
@@ -27,12 +27,12 @@
 
         <section id="tracks">
             <ul>
-                <li ng-repeat="track in tracks | filter:query:strict">
+                <li ng-repeat="track in tracks | filter:{ artist: query }">
                     <td><img ng-src="{{track.thumb_url_large}}" />
-                        <!-- <div class="artist">
+                        <div class="artist">
                           <h4 class="artist"> {{ track.artist }}</h4>
                           <h4 class="song"> {{ track.title }}</h4>
-                        </div> -->
+                        </div>
                     </td>
                     <div class="posted">
                         <p class="sitename">posted on: {{track.sitename}}</p>

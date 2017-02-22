@@ -6,7 +6,6 @@ const controllers = [
 ];
 
 for (let i = 0; i < controllers.length; i++) {
-    console.log(controllers[i]);
     app.controller(controllers[i].name, controllers[i].func);
 };
 
@@ -16,6 +15,5 @@ const services = [
 ];
 
 for (let i = 0; i < services.length; i++) {
-    console.log(services[i]);
     app.factory(services[i].name, services[i].func)
 };
