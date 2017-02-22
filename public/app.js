@@ -42,6 +42,12 @@ module.exports = {
             let postedHype = tracksService.getPostedfunc("posted");
             $scope.tracks = postedHype;
         }
+
+        $scope.searchTracks = function(){
+          let filter = tracksService.searchTracksfunc();
+          $scope.tracks = filter;
+        }
+
     },
 }
 
@@ -54,6 +60,7 @@ module.exports = {
         let latestTracks = [];
         let lovedTracks = [];
         let postedTracks = [];
+        let searchedArray = [];
 
         return {
             getTracksfunc: function() {
@@ -89,6 +96,14 @@ module.exports = {
                 })
                 return postedTracks;
             },
+            searchTracksfunc: function(query){
+              // search tracks
+              let searched = $http.get('https://api.hypem.com/v2/tracks?q=' + query + '&key=swagger').then(function(response) {
+                  const incoming = response.data;
+                  angular.copy(response.data, searchedArray)
+              })
+              return searchedArray;
+            }
         }
     }
 }

@@ -18,5 +18,11 @@ module.exports = {
             let postedHype = tracksService.getPostedfunc("posted");
             $scope.tracks = postedHype;
         }
+
+        $scope.searchTracks = function(){
+          let filter = tracksService.searchTracksfunc();
+          $scope.tracks = filter;
+        }
+
     },
 }
